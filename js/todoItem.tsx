@@ -35,6 +35,11 @@ class TodoItem extends React.Component<ITodoItemProps, ITodoItemState> {
     this.setState({editText: this.props.todo.title});
   }
 
+  public getUID() {
+    console.log("getUID");
+    return Date.now().toString(36);
+  }
+
   public handleKeyDown(event : React.KeyboardEvent) {
     if (event.keyCode === ESCAPE_KEY) {
       this.setState({editText: this.props.todo.title});
@@ -79,6 +84,8 @@ class TodoItem extends React.Component<ITodoItemProps, ITodoItemState> {
   }
 
   public render() {
+    // const uid = useUID();
+    let uid = this.getUID();
     return (
       <li className={classNames({
         completed: this.props.todo.completed,
@@ -86,12 +93,15 @@ class TodoItem extends React.Component<ITodoItemProps, ITodoItemState> {
       })}>
         <div className="view">
           <input
+            id={uid}
             className="toggle"
             type="checkbox"
             checked={this.props.todo.completed}
             onChange={this.props.onToggle}
           />
-          <label onDoubleClick={ e => this.handleEdit() }>
+          <label 
+          htmlFor={uid}
+          onDoubleClick={ e => this.handleEdit() }>
             {this.props.todo.title}
           </label>
           <button className="destroy" onClick={this.props.onDestroy} />

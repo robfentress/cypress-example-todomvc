@@ -15,7 +15,7 @@
     "dev": "run-p --race start cypress:open",
     "start": "npm run build & npm run serve",
     "serve": "node ./serve.js",
-    "test": "npm run start & cypress run",
+    "test": "npm run start & cypress run --headed --browser=chrome",
     "test:ci": "run-p --race start cypress:run",
     "test:ci:record": "run-p --race start cypress:run:record",
     "test:ci:chrome": "run-p --race start cypress:run:chrome",
@@ -37,6 +37,7 @@
     "todomvc-common": "cypress-io/todomvc-common#88b7c6359ad4a5097312d8b2a21dd539ce9f4446"
   },
   "devDependencies": {
+    "@axe-core/watcher": "3.5.0",
     "axe-core": "4.7.2",
     "browserify": "^16.2.3",
     "cross-env": "7.0.3",
