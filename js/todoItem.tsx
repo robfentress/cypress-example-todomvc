@@ -36,7 +36,6 @@ class TodoItem extends React.Component<ITodoItemProps, ITodoItemState> {
   }
 
   public getUID() {
-    console.log("getUID");
     return Date.now().toString(36);
   }
 
@@ -84,7 +83,6 @@ class TodoItem extends React.Component<ITodoItemProps, ITodoItemState> {
   }
 
   public render() {
-    // const uid = useUID();
     let uid = this.getUID();
     return (
       <li className={classNames({
@@ -93,14 +91,14 @@ class TodoItem extends React.Component<ITodoItemProps, ITodoItemState> {
       })}>
         <div className="view">
           <input
-            id={uid}
+            // id={uid}
             className="toggle"
             type="checkbox"
             checked={this.props.todo.completed}
             onChange={this.props.onToggle}
           />
           <label 
-          htmlFor={uid}
+          // htmlFor={uid}
           onDoubleClick={ e => this.handleEdit() }>
             {this.props.todo.title}
           </label>
