@@ -102,7 +102,7 @@ class TodoItem extends React.Component<ITodoItemProps, ITodoItemState> {
           onDoubleClick={ e => this.handleEdit() }>
             {this.props.todo.title}
           </label>
-          <button className="destroy" onClick={this.props.onDestroy} />
+          <button className="destroy" title="Mark Complete" onClick={this.props.onDestroy} />
         </div>
         <input
           ref="editField"

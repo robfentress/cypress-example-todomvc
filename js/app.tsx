@@ -154,11 +154,10 @@ class TodoApp extends React.Component<IAppProps, IAppState> {
         </section>
       );
     }
-
     return (
       <div>
         <header className="header">
-          <h1>todos</h1>
+          <h1>todosy</h1>
           <input
             ref="newField"
             className="new-todo"
